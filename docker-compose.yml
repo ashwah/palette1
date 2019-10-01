@@ -2,7 +2,7 @@ version: '2'
 services:
   web:
     build: .
-    command: echo 'ready'
+#    command: echo 'ready'
     volumes:
       - .:/home/app/palette1
 #      - /usr/app/node_modules
