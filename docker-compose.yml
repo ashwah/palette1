@@ -2,19 +2,9 @@ version: '2'
 services:
   web:
     build: .
-#    command: echo 'ready'
+    command: nodemon index.js
     volumes:
-      - .:/home/app/palette1
-#      - /usr/app/node_modules
+      - .:/app
     ports:
       - "3000:3000"
-#    depends_on:
-#      - postgres
-#    environment:
-#      DATABASE_URL: postgres://todoapp@postgres/todos
-#  postgres:
-#    image: postgres:9.6.2-alpine
-#    environment:
-#      POSTGRES_USER: todoapp
-#      POSTGRES_DB: todos
 

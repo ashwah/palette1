@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "instagram-api": "^1.0.3"
+    "get-pixels": "^3.3.2",
+    "instagram-api": "^1.0.3",
+    "node-kmeans": "^1.1.9"
   }
 }

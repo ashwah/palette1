@@ -1,10 +1,9 @@
-FROM node:10.16.3
+# TODO Change this base image, Opencv not needed.
+FROM justadudewhohacks/opencv-nodejs:node9-opencv3.4.1-contrib
 
-ENV HOME=/home/app
+WORKDIR /app
 
-COPY package.json $HOME/palette1/
+COPY ./package.json /app/
+RUN npm install -g nodemon && npm install
 
-WORKDIR $HOME/palette1
-RUN npm install
-
-CMD ["node", "index.js"]
+#CMD ["node", "index.js"]
