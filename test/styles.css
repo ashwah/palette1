@@ -1,0 +1,17 @@
+.circle {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+}
+
+#the-circle {
+    background: red;
+    left: 50px;
+}
+
+#the-other-circle {
+    background: yellow;
+    left: 250px;
+}
+

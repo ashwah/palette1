@@ -2,9 +2,12 @@ version: '2'
 services:
   web:
     build: .
-    command: nodemon index.js
+    #command: nodemon index.js
+    # Debug in Chrome by going to chrome://inspect
+    command: "nodemon --inspect-brk=0.0.0.0 ."
     volumes:
       - .:/app
     ports:
       - "3000:3000"
+      - "9229:9229"
 
