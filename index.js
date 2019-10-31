@@ -4,6 +4,10 @@ const app = express();
 const kmeans = require('node-kmeans');
 const getPixels = require("get-pixels");
 
+const mysql = require('mysql');
+
+const db = require('./app/database/datatbase_layer');
+
 //var accessToken = '23612221.3fcb46b.348431486f3a4fb85081d5242db9ca1c';
 //var InstagramAPI = require('instagram-api');
 //var instagramAPI = new InstagramAPI(accessToken);
@@ -24,6 +28,31 @@ app.get('/', function (req, res) {
     }
     res.send(markup);
   });
+})
+
+app.get('/db', function (req, res) {
+  db.insertImage().then(function (result) {
+    res.send(result);
+  }).catch(function (err) {
+    console.log(err);
+  });
+  // console.log('Hello ' + process.env.MYSQL_USERNAME)
+  // var con = mysql.createConnection({
+  //   host: process.env.MYSQL_HOST,
+  //   database: process.env.MYSQL_DB,
+  //   user: process.env.MYSQL_USERNAME,
+  //   password: process.env.MYSQL_PASSWORD
+  // });
+  //
+  // con.connect(function(err) {
+  //   if (err) throw err;
+  //   con.query("SELECT * FROM MyGuests", function (err, result, fields) {
+  //     if (err) throw err;
+  //     console.log(result);
+  //     res.send(result);
+  //   });
+  // });
+
 })
 
 app.listen(3000);

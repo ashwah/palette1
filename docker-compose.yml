@@ -4,10 +4,36 @@ services:
     build: .
     #command: nodemon index.js
     # Debug in Chrome by going to chrome://inspect
-    command: "nodemon --inspect-brk=0.0.0.0 ."
+    command: "nodemon --inspect=0.0.0.0 ."
     volumes:
       - .:/app
+      - node_modules:/app/node_modules
+    env_file: .env
     ports:
       - "3000:3000"
       - "9229:9229"
+    networks:
+      - app-network
 
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: $MYSQL_DATABASE
+      MYSQL_USER: $MYSQL_USER
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+    expose:
+      - '3306'
+    volumes:
+      - my-db:/var/lib/mysql
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  my-db:
+  node_modules:

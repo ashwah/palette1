@@ -13,6 +13,7 @@
     "express": "^4.17.1",
     "get-pixels": "^3.3.2",
     "instagram-api": "^1.0.3",
+    "mysql": "^2.17.1",
     "node-kmeans": "^1.1.9"
   }
 }
