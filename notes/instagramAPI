@@ -1,5 +1,7 @@
 
-223293974510282?fields=instagram_business_account   //page ID
+223293974510282?fields=instagram_business_account   //page ID of Bikes with friends
+
+Returns the insta business account id. This is the user ID for querys to the Insta API:
 
 {
   "instagram_business_account": {
@@ -7,3 +9,25 @@
   },
   "id": "223293974510282"
 }
+
+Hashtag search:
+
+/ig_hashtag_search?user_id=17841418529144960&q=coke
+
+{
+  "data": [
+    {
+      "id": "17841593698074073"       // This is the hashtag id, we use it to base the next api call.
+    }
+  ]
+}
+
+
+Use the hashtag ID to base a 'recent media'  or 'top media' request:
+
+17841593698074073/top_media?fields=media_url,media_type&user_id=17841418529144960
+
+
+This can be sent as a straight GET request in postman by including the access token as a param:
+
+https://graph.facebook.com/17841593698074073/top_media?fields=media_url,media_type&user_id=17841418529144960&access_token={my token}
